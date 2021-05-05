@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Web Storage - Local Storage - onclick button counter message box</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h1> try clicking the button </h1>
+    <button onclick = "incrementCounter ()"> Click </button>
+    <button onclick = "showCounter ()"> ShowMe </button>
+
+    <!-- ->
+
+
+    <!-- A way of persisting data in the browser, it allows us to store data in the browsers built-in 'local storage'. 
+    Use the method of the 'localsStorage' or 'sessionStorage' objects --> 
+    <script>
+      function incrementCounter () {        
+        let currentCounter = sessionStorage.getItem
+        ("counter") || 0;
+       
+
+        sessionStorage.setItem ("counter", ++ currentCounter);
+      };
+
+      // we're trying to avoid using 'global' variables, there are times when its useful to store data forleter retrieval, HTML have introduced this feature. What data would we store? If we were writting a game, we might want to store the 'users name' or the players score! 
+      // We have about 2mb to 5mb avialble on the browser. 
+
+      function showCounter () {
+       
+        let currentCounter = sessionStorage.getItem
+        ("counter") || 0;
+        
+        alert ("you clicked the button:" + "times");
+      }
+
+      function sessionStorage.removeItem ("counter");
+      // to remove items from storage, use the 'removeItem()' method. 
+
+    </script>
+  </body>
+</html>
+
+<!-- 'localStorage' data remains after the browser has closed down,'seesionStorage' is temporary, the data will be deleted when the browser tab is closed -->
+
